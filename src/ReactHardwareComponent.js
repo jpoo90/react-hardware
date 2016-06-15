@@ -143,7 +143,6 @@ ReactHardwareComponent.Mixin = {
       }
 
     }
-    // TODO: _reconcileListenersUponUpdate(prevElement.props, nextElement.props)
     this.updateChildren(nextElement.props.children, transaction, context);
   },
 
