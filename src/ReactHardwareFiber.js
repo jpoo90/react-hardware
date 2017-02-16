@@ -2,8 +2,18 @@
  * @flow
  **/
 
-import ReactHardwareFiber from './fiber/ReactHardwareFiber';
-import * as ReactHardwareComponents from './components';
+const defineProperty = Object.defineProperty;
+defineProperty(global, 'WebSocket', {
+  value: require('ws')
+});
+defineProperty(global, 'window', {
+  value: global
+});
+
+require('./devtools/setupDevtoolsFiber');
+
+const ReactHardwareFiber = require('./fiber/ReactHardwareFiber').default;
+const ReactHardwareComponents = require('./components');
 
 const ReactHardware = Object.assign(
   {},
